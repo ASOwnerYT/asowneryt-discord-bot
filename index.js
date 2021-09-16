@@ -11,6 +11,7 @@ dotenv.config();
 const client = new Client({
     intents: [
         'GUILDS',
+        'GUILD_MESSAGES',
         'GUILD_VOICE_STATES'
     ]
 });
@@ -29,6 +30,26 @@ client.on('ready', () => {
     console.log('Generating docs...');
     generateDocs(creator.commands);
 });
+
+// AI chat bot code start
+client.on('messageCreate', (message) => {
+	if (message.author.bot) return;
+	if (message.channel.id === process.env.AI_CHANNEL_ID) {
+		const fetch = require('node-fetch').default;
+
+		fetch(`https://api.snowflakedev.org/api/chatbot?message=${encodeURIComponent(message.content)}&name=ASOwnerYT-Robot-Assistant&gender=male&user=${message.author.id}`, {
+			headers: {
+				'Authorization': process.env.SNOWFLAKE_API_KEY,
+			},
+		})
+			.then(res => res.json())
+			.then(data => {
+				message.channel.send(data.message);
+			})
+			.catch(error => console.error(error));
+	}
+});
+// AI chat bot code end
 
 creator
     .withServer(

@@ -20,8 +20,10 @@ Here are all the available commands in the bot!
 |:---------------|:-----------------------------------:|----------:|
 |   **/back**    |      Plays the previous track       |           |
 | **/bassboost** |      Toggles bassboost filter       |           |
+|    **/cat**    |  Sends photos of ASOwnerYT's cat!   |           |
 |   **/jump**    |      Jumps to a specific track      | \<tracks> |
 |   **/loop**    |           Sets loop mode            |  \<mode>  |
+|   **/meme**    |          sends epic memes           |           |
 |    **/np**     |  See what's currently being played  |           |
 |   **/pause**   |       Pause the current song        |           |
 |   **/play**    |      Plays a song from youtube      | \<query>  |
