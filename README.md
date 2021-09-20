@@ -1,6 +1,6 @@
-# Discord Music Bot
+# ASOwnerYT's Discord Bot
 
-The perfect music bot for your Discord server! 🎶
+insert short description here
 
 ## Features
 
@@ -54,8 +54,10 @@ The project uses the following libraries:
 * Install [FFMPEG](https://ffmpeg.org).
 * Clone the repository. (`git clone https://github.com/Androz2091/discord-music-bot`)
 * Copy the `.env.example` file as `.env` and fill it.
- - `DISCORD_CLIENT_ID` is the ID of your Discord BOT
- - `DISCORD_CLIENT_TOKEN` is the token of your Discord BOT
+ - `DISCORD_CLIENT_ID`, `DISCORD_CLIENT_TOKEN` and `DISCORD_CLIENT_PUBKEY` can all be found on your Discord developer application page at https://developer.discord.com
+ - `DISCORD_GUILD_ID` is the ID of the Discord server you use for development testing. You can get this by turning on developer mode in your Discord client, right clicking the server and clicking `Copy ID`.
+ - `SNOWFLAKE_API_KEY` is needed for the AI chatbot and can be found at https://api.snowflakedev.org/
+ - `AI_CHANNEL_ID` is the channel ID for the AI chatbot.
 * Install the dependencies. (`yarn install` or `npm install`)
 * Start the bot! (`node .`)
 
