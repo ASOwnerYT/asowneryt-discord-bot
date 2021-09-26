@@ -5,6 +5,7 @@ const { Client } = require('discord.js');
 const { Player } = require('discord-player');
 const { registerPlayerEvents } = require('./events');
 const { generateDocs } = require('./docs');
+const fetch = require('node-fetch').default;
 
 dotenv.config();
 
@@ -31,12 +32,11 @@ client.on('ready', () => {
     generateDocs(creator.commands);
 });
 
-// AI chat bot code start
+// AI chat bot
+const AIChannels = ['883122356325863485', '883122356325863485']
 client.on('messageCreate', (message) => {
 	if (message.author.bot) return;
-	if (message.channel.id === process.env.AI_CHANNEL_ID) {
-		const fetch = require('node-fetch').default;
-
+	if (AIChannels.includes(message.channel.id)) {
 		fetch(`https://api.snowflakedev.org/api/chatbot?message=${encodeURIComponent(message.content)}&name=ASOwnerYT-Robot-Assistant&gender=male&user=${message.author.id}`, {
 			headers: {
 				'Authorization': process.env.SNOWFLAKE_API_KEY,
@@ -45,11 +45,20 @@ client.on('messageCreate', (message) => {
 			.then(res => res.json())
 			.then(data => {
 				message.channel.send(data.message);
+        console.log(`Input => ${message.content}\nOutput => ${data.message}\nChannel => ${message.channel.id}`);
 			})
 			.catch(error => console.error(error));
-	}
+	} 
+  else {
+    return;
+  }
 });
-// AI chat bot code end
+
+// Welcome message
+client.on('guildMemberAdd', (member) => {
+  console.log(member);
+  member.send('Welcome to the server!')
+})
 
 creator
     .withServer(
