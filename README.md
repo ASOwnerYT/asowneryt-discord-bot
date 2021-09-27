@@ -25,6 +25,7 @@ Here are all the available commands in the bot!
 |   **/jump**    |      Jumps to a specific track      | \<tracks> |
 |   **/loop**    |           Sets loop mode            |  \<mode>  |
 |   **/meme**    |          sends epic memes           |           |
+| **/minecraft** |       Join the Minecraft SMP!       |           |
 |    **/np**     |  See what's currently being played  |           |
 |   **/pause**   |       Pause the current song        |           |
 |   **/play**    |      Plays a song from youtube      | \<query>  |
